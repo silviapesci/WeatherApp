@@ -1,0 +1,97 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.container {
+  border: 2px solid #fff;
+  border-radius: 40px;
+  color: #fff;
+  width: 675px;
+  max-width: 100%;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  padding: 0 15px 25px 15px;
+  background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
+}
+
+.col-3 {
+  width: 160px;
+  margin-left: 45px;
+  padding: 0;
+}
+
+.search-form {
+  margin-bottom: 15px;
+  padding: 0 90px;
+  margin-left: 95px;
+  margin-right: 50px;
+  position: relative;
+  top: 70px;
+  left: 85px;
+}
+
+.search-button {
+  margin: 0;
+  width: 65px;
+}
+
+#current-city {
+  font-size: 35px;
+}
+
+.position-emoji {
+  font-size: 30px;
+}
+
+.current-daytime {
+  font-size: 28px;
+}
+
+.week-days,
+.weather-emojis,
+.maxmin-temperature {
+  margin-top: 110px;
+}
+
+.weather-emojis,
+.maxmin-temperature {
+  margin-left: 10px;
+}
+
+.currentcity-weather {
+  width: 230px;
+}
+
+.current-weather {
+  margin-top: 15px;
+}
+
+.week-days {
+  margin-left: 25px;
+  width: 120px;
+}
+
+.weather-emojis {
+  width: 60px;
+}
+
+.maxmin-temperature {
+  padding: 0 30px;
+  width: 118px;
+}
+
+.currentweather-details {
+  padding: 15px 0 0 0;
+}
+
+.current-city,
+.current-daytime,
+.current-temperature,
+.degrees,
+.currentweather-details,
+.search-form,
+.week-days,
+.maxmin-temperature {
+  font-family: "Barlow", sans-serif;
+}
