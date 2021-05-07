@@ -6,14 +6,14 @@ currentDay.innerHTML = days[today.getDay()];
 
 let currentHour = document.querySelector(".current-hour");
 currentHour.innerHTML = today.getHours();
-if (currentHour < 10) {
-  currentHour = `0${currentHour}`;
+if (today.getHours() < 10) {
+  currentHour = `0${today.getHours()}`;
 };
 
 let currentMinutes = document.querySelector(".current-minutes");
 currentMinutes.innerHTML = today.getMinutes();
-if (currentMinutes < 10) {
-  currentMinutes = `0${currentMinutes}`;
+if (today.getMinutes() < 10) {
+  currentMinutes = `0${today.getMinutes()}`;
 };
 
 
