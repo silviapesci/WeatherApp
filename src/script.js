@@ -1,20 +1,28 @@
+function formatDate(date) {
+
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let dayIndex = date.getDay();
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+  return `${days[dayIndex]} ${hours}:${minutes}`;
+}
+
+let date = document.querySelector(".current-date");
 let today = new Date();
 
-let currentDay = document.querySelector(".current-day");
-let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-currentDay.innerHTML = days[today.getDay()];
+date.innerHTML = formatDate(today);
 
-let currentHour = document.querySelector(".current-hour");
-currentHour.innerHTML = today.getHours();
-if (today.getHours() < 10) {
-  currentHour = `0${today.getHours()}`;
-};
 
-let currentMinutes = document.querySelector(".current-minutes");
-currentMinutes.innerHTML = today.getMinutes();
-if (today.getMinutes() < 10) {
-  currentMinutes = `0${today.getMinutes()}`;
-};
+
+
+
 
 
 function displayWeather(response) {
