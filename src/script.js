@@ -20,11 +20,6 @@ let today = new Date();
 date.innerHTML = formatDate(today);
 
 
-
-
-
-
-
 function displayWeather(response) {
   let currentCity = document.querySelector("#current-city");
   currentCity.innerHTML = response.data.name;
@@ -35,7 +30,10 @@ function displayWeather(response) {
   humidity.innerHTML = response.data.main.humidity;
 
   let wind = document.querySelector("#wind");
-  wind.innerHTML = Math.round(response.data.wind.speed); 
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  
+  let mainIcon = document.querySelector("#main-icon");
+  mainIcon.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 function search(city) {
