@@ -14,6 +14,25 @@ function formatDate(date) {
   return `${days[dayIndex]} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = "";
+
+  let weekdays = ["Wednesday","Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+
+  weekdays.forEach(function (day){
+    forecastHTML = forecastHTML + `
+    <div>
+    <span id="days"> ${day} </span>
+    <img src="http://openweathermap.org/img/wn/10d@2x.png" width="40" class="weather-icons"/>
+    <span class="max-temperature">21° /</span>
+    <span class="min-temperature"> 8°</span>
+    </div>`    
+  });
+
+  forecast.innerHTML = forecastHTML;
+}
+
 let date = document.querySelector(".current-date");
 let today = new Date();
 
@@ -54,6 +73,6 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 search("Milan");
-
+displayForecast();
 
 
