@@ -12,18 +12,20 @@ ul {
   margin-top: 60px;
   margin-bottom: 10px;
   padding: 0 15px 25px 15px;
-  background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
+  background-color: #212121;
 }
-
-.col-3 {
+.col-8 {
+  padding: 0 20px 0 20px;
+}
+.col-4 {
   width: 160px;
-  margin-left: 45px;
-  padding: 0;
+  margin-left: 10px;
+  padding: 0 15px 0 0;
 }
 
 .search-form {
   margin-bottom: 15px;
-  padding: 0 90px;
+  padding: 0 50px 0 75px;
   margin-left: 95px;
   margin-right: 50px;
   position: relative;
@@ -48,15 +50,27 @@ ul {
   font-size: 28px;
 }
 
-.week-days,
-.weather-emojis,
-.maxmin-temperature {
-  margin-top: 110px;
+.weather-forecast {
+  margin-top: 85px;
+  padding: 0 0 0 30px;
+  width: 250px;
 }
 
-.weather-emojis,
-.maxmin-temperature {
-  margin-left: 10px;
+#days,
+#humidity,
+#wind,
+.max-temperature,
+.min-temperature {
+  font-size: 18px;
+}
+
+.current-temperature,
+.degrees {
+  font-size: 38px;
+}
+
+.min-temperature {
+  opacity: 0.8;
 }
 
 .currentcity-weather {
@@ -65,20 +79,6 @@ ul {
 
 .current-weather {
   margin-top: 15px;
-}
-
-.week-days {
-  margin-left: 25px;
-  width: 120px;
-}
-
-.weather-emojis {
-  width: 60px;
-}
-
-.maxmin-temperature {
-  padding: 0 30px;
-  width: 118px;
 }
 
 .currentweather-details {
@@ -91,8 +91,9 @@ ul {
 .degrees,
 .currentweather-details,
 .search-form,
-.week-days,
-.maxmin-temperature,
+.weather-forecast,
+.max-temperature,
+.min-temperature,
 .coder {
   font-family: "Barlow", sans-serif;
 }
