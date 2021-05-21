@@ -14,21 +14,35 @@ function formatDate(date) {
   return `${days[dayIndex]} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  return days[day];
+
+}
+
+function displayForecast(response) {
+
+  let apiForecast = response.data.daily;
   let forecast = document.querySelector("#forecast");
   let forecastHTML = "";
 
-  let weekdays = ["Wednesday","Thursday", "Friday", "Saturday", "Sunday", "Monday"];
-
-  weekdays.forEach(function (day){
-    forecastHTML = forecastHTML + `
+  apiForecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+    
+      forecastHTML = forecastHTML +
+        `
     <div>
-    <span id="days"> ${day} </span>
-    <img src="http://openweathermap.org/img/wn/10d@2x.png" width="40" class="weather-icons"/>
-    <span class="max-temperature">21° /</span>
-    <span class="min-temperature"> 8°</span>
-    </div>`    
-  });
+    <span id="days"> ${formatDay(forecastDay.dt)} </span>
+    <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width="40" class="weather-icons"/>
+    <span class="max-temperature">${Math.round(forecastDay.temp.max)}° /</span>
+    <span class="min-temperature"> ${Math.round(forecastDay.temp.min)}°</span>
+    </div>
+    `
+      }
+    });
+
 
   forecast.innerHTML = forecastHTML;
 }
@@ -37,6 +51,16 @@ let date = document.querySelector(".current-date");
 let today = new Date();
 
 date.innerHTML = formatDate(today);
+
+
+function getForecast(coordinates) {
+
+  console.log(coordinates);
+  let apiKey = "f16ec4548e17c1cd3fffcb4a483b9d84";
+  let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 
 
 function displayWeather(response) {
@@ -52,7 +76,10 @@ function displayWeather(response) {
   wind.innerHTML = Math.round(response.data.wind.speed);
   
   let mainIcon = document.querySelector("#main-icon");
-  mainIcon.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  mainIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  
+  getForecast(response.data.coord);
+
 }
 
 function search(city) {
@@ -73,6 +100,6 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 search("Milan");
-displayForecast();
+
 
 
