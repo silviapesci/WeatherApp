@@ -12,7 +12,13 @@ ul {
   margin-top: 60px;
   margin-bottom: 10px;
   padding: 0 15px 25px 15px;
-  background-color: #212121;
+  background-image: linear-gradient(
+    to top,
+    #0c3483 0%,
+    #a2b6df 100%,
+    #6b8cce 100%,
+    #a2b6df 100%
+  );
 }
 .col-8 {
   padding: 0 20px 0 20px;
@@ -59,6 +65,8 @@ ul {
 #days,
 #humidity,
 #wind,
+.wind,
+.humidity,
 .max-temperature,
 .min-temperature {
   font-size: 18px;
